@@ -137,6 +137,14 @@ object Form1: TForm1
       GridView = cxGrid1DBTableView1
     end
   end
+  object BitBtn3: TBitBtn
+    Left = 440
+    Top = 152
+    Width = 75
+    Height = 25
+    Caption = 'BitBtn3'
+    TabOrder = 4
+  end
   object ADOConnection1: TADOConnection
     Connected = True
     ConnectionString = 

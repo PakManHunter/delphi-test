@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.810,C:\Git\Delphi-test\Project1\Unit1.dfm=C:\Users\Яна и Павел\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.998,=C:\Users\Яна и Павел\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.548,=C:\Users\Яна и Павел\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.250,=C:\Users\Яна и Павел\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.007,C:\Git\Delphi-test\Project1\Project1.dproj=C:\Users\Яна и Павел\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
     <Transaction>1899.12.30 00:00:00.000.599,C:\Users\Яна и Павел\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Яна и Павел\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>2019.07.29 23:36:01.007,C:\Git\Delphi-test\Project1\Project1.dproj=C:\Users\Яна и Павел\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>2019.07.29 23:36:13.810,C:\Git\Delphi-test\Project1\Unit1.pas=C:\Users\Яна и Павел\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2019.07.29 23:36:13.810,C:\Git\Delphi-test\Project1\Unit1.dfm=C:\Users\Яна и Павел\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.810,C:\Git\Delphi-test\Project1\Unit1.pas=C:\Users\Яна и Павел\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019.07.29 23:52:32.640,C:\Git\Delphi-test\Project1\Project1.dproj=C:\Git\Delphi-test\Project1\Project1.dproj</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
 		<NoProfile iOSSimulator="iPhone5"/>
