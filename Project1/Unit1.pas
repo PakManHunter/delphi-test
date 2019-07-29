@@ -61,6 +61,7 @@ type
     cxGrid1DBTableView1Address: TcxGridDBColumn;
     cxGrid1DBTableView1Note: TcxGridDBColumn;
     BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure DBGrid1CellClick(Column: TColumn);

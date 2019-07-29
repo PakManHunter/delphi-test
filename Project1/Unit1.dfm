@@ -145,6 +145,14 @@ object Form1: TForm1
     Caption = 'BitBtn3'
     TabOrder = 4
   end
+  object BitBtn4: TBitBtn
+    Left = 440
+    Top = 208
+    Width = 75
+    Height = 25
+    Caption = 'BitBtn4'
+    TabOrder = 5
+  end
   object ADOConnection1: TADOConnection
     Connected = True
     ConnectionString = 
