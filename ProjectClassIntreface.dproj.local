@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.893,=C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Pr1\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.649,=C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Pr1\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.929,C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Unit6.dfm=C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Pr1\formMain.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.929,C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Unit6.pas=C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Pr1\formMain.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.613,=C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Unit6.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.580,C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Project8.dproj=C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Pr1\ProjectClassIntreface.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.262,C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Pr1\UnitClassSimple.pas=C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Pr1\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.471,=C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Pr1\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.938,C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Pr1\Unit1.pas=C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Pr1\UnitClassInterface.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.761,C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Pr1\Unit1.pas=C:\Users\Павел\Documents\Embarcadero\Studio\Projects\Pr1\UnitAbstractClass.pas</Transaction>
+  </Transactions>
+</BorlandProject>
