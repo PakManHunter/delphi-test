@@ -173,6 +173,8 @@ begin
      Memo1:=Memo.Create(self);
      Memo1.Parent:=FmMain;
 
+     FmMain.Height:=400;
+
      Memo1.Top:=8;
      Memo1.Width:=619;
      Memo1.Height:=234;
