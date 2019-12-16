@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.Win.ADODB;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.Win.ADODB, Generics.Collections, Generics.Defaults;
 
 type
   TFmMain = class(TForm)
@@ -32,6 +32,18 @@ type
                              N:string); reintroduce;
       end;
 
+      type
+          TCity=class
+           private
+             fCountry:string;
+             fstrength:integer;
+            public
+              constructor Create(Country : string; Strength : integer);
+              destructor Destroy; override;
+              property Country : string read fCountry write fCountry;
+              property Strength : integer read fStrength write fStrength;
+      end;
+
 type
   TNewAdoTable = class (TAdoTable)
   private
@@ -51,6 +63,8 @@ var
   AdoNewConnection: TNewAdoConnection;
   Memo1, Memo2 :Memo;
   button1, button2: TNewButton;
+  City:TCity;
+  CityInstances : integer = 0;
 
 implementation
 
@@ -63,6 +77,23 @@ Constructor TNewAdoConnection.Create(AOwner: TComponent);
 begin
   inherited;
   self.ConnectionString:='';
+end;
+
+constructor TCity.Create(Country: string; Strength: integer);
+begin
+
+  inc(CityInstances);
+
+  fCountry := Country;
+  fStrength := Strength;
+
+end;
+
+destructor TCity.Destroy;
+begin
+  dec(CityInstances);
+
+  inherited;
 end;
 
 
@@ -164,6 +195,9 @@ procedure TFmMain.ButtonClick(Sender: TObject);
 end;
 
 procedure TFmMain.FormCreate(Sender: TObject);
+var
+   iCounts:byte;
+   CityList : TList<TCity>;
 begin
      AdoNewConnection:=TNewAdoConnection.Create(Self);
      AdoTableNew:=TNewAdoTable.Create(self);
@@ -185,6 +219,21 @@ begin
      Button2:=TNewButton.Create(self, 300, 8,200,50,'Кнопка 2');
      button1.OnClick:= BtnHwindClick;
 
+     CityList:=TList<TCity>.Create;
+
+     Memo1.Lines.Add(CityInstances.ToString);
+
+     CityList.Add(TCity.Create('Мурманск', 342000));
+     CityList.Add(TCity.Create('Архангельск', 542000));
+
+
+     Memo1.Lines.Add(CityList.Count.ToString());
+
+     CityList.Delete(1);
+     for city in cityList do
+          Memo1.Lines.Add(City.Country+' '+City.Strength.ToString);
+
+      Memo1.Lines.Add(CityList.Count.ToString());
 end;
 
 procedure TFmMain.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
