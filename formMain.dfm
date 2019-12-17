@@ -11,6 +11,7 @@ object FmMain: TFmMain
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   OnCreate = FormCreate
   OnMouseMove = FormMouseMove
   PixelsPerInch = 96

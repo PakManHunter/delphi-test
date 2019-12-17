@@ -5,13 +5,16 @@ uses
   formMain in 'formMain.pas' {FmMain},
   UnitClassInterface in 'UnitClassInterface.pas',
   UnitAbstractClass in 'UnitAbstractClass.pas',
-  UnitClassSimple in 'UnitClassSimple.pas';
+  UnitClassSimple in 'UnitClassSimple.pas',
+  formAuth in 'formAuth.pas' {fAuth};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TFmMain, FmMain);
+  Application.CreateForm(TfAuth, fAuth);
+  fAuth.ShowModal;
+  fAuth.Free;
   Application.Run;
 end.

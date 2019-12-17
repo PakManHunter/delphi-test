@@ -10,8 +10,8 @@ type
   TFmMain = class(TForm)
     procedure FormCreate(Sender: TObject);
     procedure ButtonClick(Sender: TObject);
-    procedure BtnHwindClick(Sender: TObject);
     procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -62,14 +62,14 @@ var
   AdoTableNew: TNewAdoTable;
   AdoNewConnection: TNewAdoConnection;
   Memo1, Memo2 :Memo;
-  button1, button2: TNewButton;
+  ButtChoiceVariant, ButtChoiceCoctail, ButtExit : TNewButton;
   City:TCity;
   CityInstances : integer = 0;
 
 implementation
 
 uses
-  UnitClassInterface, UnitAbstractClass, UnitClassSimple;
+  UnitClassInterface, UnitAbstractClass, UnitClassSimple, formAuth;
 
 {$R *.dfm}
 
@@ -121,77 +121,90 @@ begin
   self.TableName:=AdoTableName;
 end;
 
-procedure TFmmain.BtnHwindClick(Sender: TObject);
- var
-  h: HWND;
-begin
-    if FindWindow(nil, 'EditPlus') <> 0 then
-            begin
-                  h := findwindow(nil, 'EditPlus');
-                  SetWindowPos(h, HWND_BOTTOM, 1, 1, 20, 20, swp_nosize)
-            end
-    else
-        ShowMessage('Окно НЕ найдено');
-end;
 
 procedure TFmMain.ButtonClick(Sender: TObject);
   var
      MyInterface:IMyInterface;
      cocktail: TCocktail;
      MyClass, MyClass2 :TSimpleClass;
+     h: HWND;
 
 
     begin
-     MyInterface:=TMyClass.Create;
-     try
-         MyInterface.SayHello;
-         Memo1.Lines.Add(MyInterface.SayHello);
-         Memo1.Lines.Add(IntToStr(MyInterface._AddRef));
-     finally
+    case (sender as TNewButton).Tag of
+    1:
+                       begin
+                          MyInterface:=TMyClass.Create;
+                           try
+                               MyInterface.SayHello;
+                               Memo1.Lines.Add(MyInterface.SayHello);
+                               Memo1.Lines.Add(IntToStr(MyInterface._AddRef));
+                           finally
 
-     end;
+                           end;
 
-     MyInterface:=TMyClassNew.Create;
-     try
-         MyInterface.SayHello;
-         Memo1.Lines.Add(MyInterface.SayHello);
-     finally
+                           MyInterface:=TMyClassNew.Create;
+                           try
+                               MyInterface.SayHello;
+                               Memo1.Lines.Add(MyInterface.SayHello);
+                           finally
 
-     end;
+                           end;
 
-     cocktail := TBloodyMary.Create;
-     try
-         cocktail.Prepare;
-         Memo1.Lines.Add(cocktail.MTextClass);
-     finally
-         cocktail.Free;
-     end;
+                           cocktail := TBloodyMary.Create;
+                           try
+                               cocktail.Prepare;
+                               Memo1.Lines.Add(cocktail.MTextClass);
+                           finally
+                               cocktail.Free;
+                           end;
 
-     cocktail := TIrishCoffee.Create;
-     try
-         cocktail.Prepare;
-         Memo1.Lines.Add(cocktail.MTextClass);
-     finally
-         cocktail.Free;
-     end;
+                           cocktail := TIrishCoffee.Create;
+                           try
+                               cocktail.Prepare;
+                               Memo1.Lines.Add(cocktail.MTextClass);
+                           finally
+                               cocktail.Free;
+                           end;
 
-     MyClass := TSimpleClass.Create;
-     try
-          Memo1.Lines.Add(MyClass.TName);
-     finally
-        // MyClass.Free;
-     end;
+                           MyClass := TSimpleClass.Create;
+                           try
+                                Memo1.Lines.Add(MyClass.TName);
+                           finally
+                              // MyClass.Free;
+                           end;
 
-     MyClass2 := TSimpleClass.Create;
-     try
-          Memo1.Lines.Add(MyClass2.TName);
-     finally
-        // MyClass.Free;
-     end;
+                           MyClass2 := TSimpleClass.Create;
+                           try
+                                Memo1.Lines.Add(MyClass2.TName);
+                           finally
+                              // MyClass.Free;
+                           end;
+                       end;
+      2:
+                       begin
+                          if FindWindow(nil, 'EditPlus') <> 0 then
+                                  begin
+                                        h := findwindow(nil, 'EditPlus');
+                                        SetWindowPos(h, HWND_BOTTOM, 1, 1, 20, 20, swp_nosize)
+                                  end
+                          else
+                              ShowMessage('Окно НЕ найдено');
+                       end;
+      3:
+                       begin
+                          Application.Terminate;
+                       end;
+    end;
 
 
-    // AdoTableNew.Create(fmMain);
 
+end;
+
+procedure TFmMain.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+    self.Free;
+    Application.Terminate;
 end;
 
 procedure TFmMain.FormCreate(Sender: TObject);
@@ -205,9 +218,9 @@ begin
      AdoTableNew.Connection:=AdoNewConnection;
 
      Memo1:=Memo.Create(self);
-     Memo1.Parent:=FmMain;
+     Memo1.Parent:=self;
 
-     FmMain.Height:=400;
+     self.Height:=400;
 
      Memo1.Top:=8;
      Memo1.Width:=619;
@@ -215,9 +228,15 @@ begin
      Memo1.Left:=8;
      Memo1.ReadOnly:=True;
 
-     Button1:=TNewButton.Create(self, 245, 8,200,50,'Кнопка 1');
-     Button2:=TNewButton.Create(self, 300, 8,200,50,'Кнопка 2');
-     button1.OnClick:= BtnHwindClick;
+     ButtChoiceVariant:=TNewButton.Create(self, 245, 8,200,50,'Коктейль');
+     ButtChoiceCoctail:=TNewButton.Create(self, 245, 208,200,50,'Поиск окна');
+     ButtExit:=TNewButton.Create(self, 300, 8,200,50,'Выход');
+     ButtChoiceVariant.Tag:=1;
+     ButtChoiceCoctail.Tag:=2;
+     ButtExit.Tag:=3;
+     ButtChoiceVariant.OnClick:= ButtonClick;
+     ButtChoiceCoctail.OnClick:= ButtonClick;
+     ButtExit.OnClick:=ButtonClick;
 
      CityList:=TList<TCity>.Create;
 
