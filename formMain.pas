@@ -65,7 +65,7 @@ var
 implementation
 
 uses
-  UnitClassInterface, UnitAbstractClass, UnitClassSimple, formAuth;
+  UnitClassInterface, UnitAbstractClass, UnitClassSimple, formAuth, UnitGenerics;
 
 {$R *.dfm}
 
@@ -204,7 +204,10 @@ end;
 procedure TFmMain.FormCreate(Sender: TObject);
 var
    CityList : TList<TCity>;
-   City:TCity;
+   City     : TCity;
+   TGen     : TGenericsClass<integer>;
+   TNewGen  : TGenericsClass<string>;
+          i : integer;
 begin
      AdoNewConnection:=TNewAdoConnection.Create(Self);
      AdoTableNew:=TNewAdoTable.Create(self);
@@ -247,6 +250,18 @@ begin
           Memo1.Lines.Add(City.Country+' '+City.Strength.ToString);
 
       Memo1.Lines.Add(CityList.Count.ToString());
+
+
+      TGen:=TGenericsClass<integer>.Create;
+      Tgen.SetT(99);
+      Memo1.Lines.Add(TGen.GetT.ToString());
+      TGen.Free;
+
+      TNewGen:=TGenericsClass<string>.Create;
+      TNewGen.SetT('Что-то');
+      Memo1.Lines.Add(TNewGen.GetT);
+      TNewGen.Free;
+
 end;
 
 procedure TFmMain.FormMouseMove(Sender: TObject; Shift: TShiftState; X,

@@ -6,7 +6,8 @@ uses
   UnitClassInterface in 'UnitClassInterface.pas',
   UnitAbstractClass in 'UnitAbstractClass.pas',
   UnitClassSimple in 'UnitClassSimple.pas',
-  formAuth in 'formAuth.pas' {fAuth};
+  formAuth in 'formAuth.pas' {fAuth},
+  UnitGenerics in 'UnitGenerics.pas';
 
 {$R *.res}
 

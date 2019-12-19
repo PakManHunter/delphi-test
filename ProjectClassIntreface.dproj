@@ -99,6 +99,7 @@
         <DCCReference Include="formAuth.pas">
             <Form>fAuth</Form>
         </DCCReference>
+        <DCCReference Include="UnitGenerics.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
