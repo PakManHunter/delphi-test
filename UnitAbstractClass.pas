@@ -82,7 +82,6 @@ begin
   AddFirstIngridient();
   AddSeconsIngridient();
   AddDecorations();
-  //TextClass:='Ваш коктейль готов';
 end;
 
 end.

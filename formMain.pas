@@ -25,15 +25,12 @@ type
 
    type
       TNewButton = class (TButton)
-      constructor Create(AOwner: TComponent; T:integer;
-                             L:integer;
-                             W:integer;
-                             H:integer;
-                             N:string); reintroduce;
+      constructor Create(AOwner: TComponent;
+                                 T,L,W,H:integer;
+                                 N:string); reintroduce;
       end;
-
-      type
-          TCity=class
+   type
+       TCity=class
            private
              fCountry:string;
              fstrength:integer;
@@ -63,7 +60,6 @@ var
   AdoNewConnection: TNewAdoConnection;
   Memo1, Memo2 :Memo;
   ButtChoiceVariant, ButtChoiceCoctail, ButtExit : TNewButton;
-  City:TCity;
   CityInstances : integer = 0;
 
 implementation
@@ -92,10 +88,8 @@ end;
 destructor TCity.Destroy;
 begin
   dec(CityInstances);
-
   inherited;
 end;
-
 
 Constructor TNewButton.Create(
                         AOwner : TComponent;
@@ -209,8 +203,8 @@ end;
 
 procedure TFmMain.FormCreate(Sender: TObject);
 var
-   iCounts:byte;
    CityList : TList<TCity>;
+   City:TCity;
 begin
      AdoNewConnection:=TNewAdoConnection.Create(Self);
      AdoTableNew:=TNewAdoTable.Create(self);
